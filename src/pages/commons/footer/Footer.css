@@ -1,0 +1,32 @@
+.Footer {
+    margin-top: 30px;
+    padding: 40px 0;
+    background-color: bisque;
+}
+.Footer .footer-part {
+    margin-bottom: 40px;
+}
+.Footer .footer-title {
+    margin-bottom: 20px;
+}
+.Footer .copy-right {
+    margin-top: 145px;
+}
+.Footer .copy-right span {
+    font-style: italic;
+    color: dodgerblue;
+    font-weight: bold;
+}
+.Footer .social {
+    margin-left: 0;
+    margin-top: 10px;
+}
+.Footer .social .btn-social {
+    display: inline-block;
+    font-size: 1.2em;
+    margin-right: 15px;
+}
+.Footer .social span {
+    display: inline-block;
+    width: 70px;
+}

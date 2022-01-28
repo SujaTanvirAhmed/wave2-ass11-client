@@ -1,0 +1,26 @@
+.Header {
+    margin: 25px 0;
+    margin-bottom: 115px;
+}
+.Header .menu-item {
+    text-decoration: none;
+    padding: 5px 10px;
+    margin-left: 15px;
+    margin-top: 15px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    /* background-color: dodgerblue; */
+    color: #fff;
+}
+.Header .signout-btn {
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid lightgray;
+    padding: 3px 5px;
+    border-radius: 3px;
+    margin-left: 8px;
+    transition-duration: 200ms;
+}
+.Header .signout-btn:hover {
+    box-shadow: 1px 1px 1px 1px white;
+}

@@ -57,12 +57,12 @@ export default function BookService() {
         setAddress(event.target.value);
     }
 
-    function handleBooking(event) {
+    function handleBookingSubmit(event) {
         event.preventDefault();
 
         const userId = getUserDbId();
         const newOrder = { userId, serviceId, phone, address };
-        fetch(`${SERVER_URL}/book-a-service`, {
+        fetch(`${SERVER_URL}/orders/book-a-service`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newOrder)
@@ -70,9 +70,9 @@ export default function BookService() {
             .then(response => response.json())
             .then(data => {
                 if (data.message === "SUCCESS") {
-                    setServerResponse("An order placed successfully!");
+                    setServerResponse("Your order placed successfully!");
                 } else if (data.message === "FAILURE") {
-                    setServerResponse("Failed to place an order!");
+                    setServerResponse("Failed to place your order!");
                 }
             })
             .catch(err => setServerResponse(err.message));
@@ -86,7 +86,7 @@ export default function BookService() {
                 <Row className="mt-5">
 
                     <Col xs={12} md={6}>
-                        <Form onSubmit={handleBooking}>
+                        <Form onSubmit={handleBookingSubmit}>
 
                             <Form.Group className="mb-3">
                                 <Form.Control

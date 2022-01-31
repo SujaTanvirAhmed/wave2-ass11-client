@@ -23,13 +23,14 @@ export default function Login() {
     const [error, setError] = React.useState('');
 
     function getUserFromDb(firebaseUser) {
-        const backendUser = {
+        const dbUser = {
             email: firebaseUser.email,
+            name: firebaseUser.displayName
         };
-        fetch(`${SERVER_URL}/login`, {
+        fetch(`${SERVER_URL}/connect/login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(backendUser)
+            body: JSON.stringify(dbUser)
         })
             .then(reply => reply.json())
             .then(data => {
@@ -48,6 +49,7 @@ export default function Login() {
         handlePasswordSignIn(email, pass)
             .then(userCredential => {
                 const loggedUser = userCredential.user;
+                // console.log(loggedUser);
                 setUser(loggedUser);
                 getUserFromDb(loggedUser);
             })
@@ -62,7 +64,7 @@ export default function Login() {
         setPassword(event.target.value);
     }
 
-    function handleLogin(event) {
+    function handleLoginSubmit(event) {
         event.preventDefault();
 
         if (
@@ -87,7 +89,7 @@ export default function Login() {
                     <Col xs={12} md={3}></Col>
                     <Col xs={12} md={6}>
 
-                        <Form onSubmit={handleLogin} className="mt-5">
+                        <Form onSubmit={handleLoginSubmit} className="mt-5">
 
                             <Form.Group className="mb-3">
                                 <Form.Control

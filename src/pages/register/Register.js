@@ -32,7 +32,7 @@ export default function Register() {
             role: "user",
             provider: firebaseUser.providerData[0].providerId
         };
-        fetch(`${SERVER_URL}/register`, {
+        fetch(`${SERVER_URL}/connect/register`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(backendUser)

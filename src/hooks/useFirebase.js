@@ -63,7 +63,7 @@ export default function useFirebase() {
             );
     }
 
-    // const SERVER_URL = "https://secret-dawn-22405.herokuapp.com";
+    // const SERVER_URL = "https://serene-fortress-86476.herokuapp.com";
     const SERVER_URL = "http://localhost:5000";
 
     return {

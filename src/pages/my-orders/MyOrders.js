@@ -12,26 +12,26 @@ export default function MyOrders() {
     } = React.useContext(allContext);
 
     const [myOrders, setMyOrders] = React.useState([]);
-    const [error, setError] = React.useState('');
+    // const [error, setError] = React.useState('');
     const [isLoading, setIsLoading] = React.useState(true);
 
     const userDbId = getUserDbId();
 
     React.useEffect(() => {
-        fetch(`${SERVER_URL}/my-orders/${userDbId}`)
+        fetch(`${SERVER_URL}/orders/${userDbId}`)
             .then(response => response.json())
             .then(data => {
                 setMyOrders(data);
                 setIsLoading(false);
-                if (data.length === 0) {
-                    setError("There is no data in ");
-                }
+                // if (data.length === 0) {
+                //     setError("There is no data in ");
+                // }
             })
             .catch(err => {
-                setError(
-                    err.message +
-                    ": Server error in retrieving "
-                );
+                // setError(
+                //     err.message +
+                //     ": Server error in retrieving "
+                // );
                 setIsLoading(false);
             });
     }, [SERVER_URL, userDbId]);
@@ -46,7 +46,7 @@ export default function MyOrders() {
                         (myOrders.length === 0 ?
                             (
                                 <h3
-                                    className="error-msg">{error}<span>my orders!</span>
+                                    className="error-msg">You haven't placed any <span>order</span> yet!
                                 </h3>
                             ) :
                             (

@@ -13,7 +13,7 @@ export default function ManageAllOrders() {
     const [isLoading, setIsLoading] = React.useState(true);
 
     React.useEffect(() => {
-        fetch(`${SERVER_URL}/all-orders`)
+        fetch(`${SERVER_URL}/orders`)
             .then(response => response.json())
             .then(data => {
                 setAllOrders(data);

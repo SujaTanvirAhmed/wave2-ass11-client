@@ -5,7 +5,7 @@ import useAuth from '../../hooks/useAuth';
 export default function AddNewService() {
     document.title = "Imperial Hotel - Add Service";
 
-    const { SERVER_URL, user } = useAuth();
+    const { SERVER_URL } = useAuth();
     const [serverResponse, setServerResponse] = useState('');
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -58,69 +58,61 @@ export default function AddNewService() {
         <div className="MyOrders">
             <Container>
                 <h3 className="page-title">Add New Service</h3>
-                {
-                    user.email === "admin@admin.com" ?
-                        (
-                            <Row>
-                                <Col xs={12} md={3}></Col>
-                                <Col xs={12} md={6}>
 
-                                    <Form onSubmit={handleServiceSubmit}>
-                                        <p>{serverResponse}</p>
-                                        <Form.Group className="mb-3">
-                                            <Form.Control
-                                                type="text"
-                                                onChange={handleServiceTitleInput}
-                                                value={title}
-                                                placeholder="Service title"
-                                                required
-                                            />
-                                        </Form.Group>
+                <Row>
+                    <Col xs={12} md={3}></Col>
+                    <Col xs={12} md={6}>
 
-                                        <Form.Group className="mb-3">
-                                            <Form.Control
-                                                type="text"
-                                                onChange={handleServiceDescriptionInput}
-                                                value={description}
-                                                placeholder="Service description"
-                                                required
-                                            />
-                                        </Form.Group>
+                        <Form onSubmit={handleServiceSubmit}>
+                            <p>{serverResponse}</p>
+                            <Form.Group className="mb-3">
+                                <Form.Control
+                                    type="text"
+                                    onChange={handleServiceTitleInput}
+                                    value={title}
+                                    placeholder="Service title"
+                                    required
+                                />
+                            </Form.Group>
 
-                                        <Form.Group className="mb-3">
-                                            <Form.Control
-                                                type="text"
-                                                onChange={handleServiceImageInput}
-                                                value={image}
-                                                placeholder="Service image link"
-                                                required
-                                            />
-                                        </Form.Group>
+                            <Form.Group className="mb-3">
+                                <Form.Control
+                                    type="text"
+                                    onChange={handleServiceDescriptionInput}
+                                    value={description}
+                                    placeholder="Service description"
+                                    required
+                                />
+                            </Form.Group>
 
-                                        <Button
-                                            type="submit"
-                                            variant="primary"
-                                            style={{ marginBottom: "50px" }}
-                                        >Add Service</Button>
+                            <Form.Group className="mb-3">
+                                <Form.Control
+                                    type="text"
+                                    onChange={handleServiceImageInput}
+                                    value={image}
+                                    placeholder="Service image link"
+                                    required
+                                />
+                            </Form.Group>
 
-                                        <Button
-                                            variant="secondary"
-                                            onClick={resetForm}
-                                            style={{ marginTop: "-50px", marginLeft: "15px" }}
-                                        >Reset</Button>
+                            <Button
+                                type="submit"
+                                variant="primary"
+                                style={{ marginBottom: "50px" }}
+                            >Add Service</Button>
 
-                                    </Form>
+                            <Button
+                                variant="secondary"
+                                onClick={resetForm}
+                                style={{ marginTop: "-50px", marginLeft: "15px" }}
+                            >Reset</Button>
 
-                                </Col>
-                            </Row>
-                        ) :
-                        (
-                            <div className="prohibit-msg">
-                                <h5>You are not allowed to view this page</h5>
-                                <p><em>Only admin with email 'admin@admin.com' and password '123456' can access this page!</em></p>
-                            </div>
-                        )
-                }
+                        </Form>
+
+                    </Col>
+                </Row>
+
+
             </Container>
         </div>
     );
